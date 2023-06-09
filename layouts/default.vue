@@ -8,14 +8,17 @@
         <img src="/assets/web3Stream.png" alt="Logo">
       </NuxtLink>
       <div flex gap-32px text-gray-600 text-lg>
-        <NuxtLink to="/discover" link active-class="text-black">
+        <NuxtLink to="/" gray-link active-class="text-black">
           Discover
         </NuxtLink>
-        <NuxtLink to="/mystreams" link active-class="text-black">
-          My streams
+        <NuxtLink to="/series" gray-link active-class="text-black">
+          Series
         </NuxtLink>
-        <NuxtLink to="/about" link active-class="text-black">
-          About
+        <NuxtLink to="/myevents" gray-link active-class="text-black">
+          My Events
+        </NuxtLink>
+        <NuxtLink to="/create" blue-link active-class="text-black">
+          + Create
         </NuxtLink>
       </div>
       <div>Connect Wallet (TODO)</div>

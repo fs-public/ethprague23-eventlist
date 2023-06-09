@@ -26,7 +26,7 @@ const cardStyles: { [key in DTimeStatus]: string } = {
             </div>
           </div>
         </div>
-        <NuxtLink :to="event.programUrl" heading-md pt-24px link>
+        <NuxtLink :to="event.programUrl" heading-md pt-24px gray-link>
           Full Program
         </NuxtLink>
       </div>

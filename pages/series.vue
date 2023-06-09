@@ -1,5 +1,5 @@
 <template>
   <div page-container text-md>
-    My Streams page
+    Series page
   </div>
 </template>
