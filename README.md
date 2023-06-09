@@ -1,10 +1,12 @@
 # ETH Prague 2023 - Event List
 
-Badges
+![CI badge](https://github.com/fs-public/ethprague23-tokenlist/actions/workflows/ci.yml/badge.svg)
 
-Motivation
+Motivation: todo
 
-Authors
+Filip Svoboda, Daniel Klein, coinmandeer, tree
+
+Deployed with [Vercel](https://ethprague23-eventlist.vercel.app/)
 
 ## Installation
 
