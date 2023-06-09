@@ -52,6 +52,7 @@ export default defineConfig({
       black: '#000000',
       bggray: {
         100: '#F0F0F0',
+        200: '#E0E0E0',
         300: '#D9D9D9',
       },
       gray: {

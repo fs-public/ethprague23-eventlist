@@ -21,7 +21,7 @@ const displayAll = ref(false)
     <button
       v-if="!displayAll"
       px-24px py-12px rounded-200
-      border-1 border-bggray-100 text-gray-600
+      border-1 border-bggray-200 text-gray-600
       @click="displayAll = true"
     >
       Show all
