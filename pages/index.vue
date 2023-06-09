@@ -12,21 +12,19 @@ const config = {
 </script>
 
 <template>
-  <div flex justify-center>
-    <div w-full max-w="80%" flex flex-col gap-48px>
-      <div heading-lg pt-24px>
-        Upcoming
-      </div>
-      <TEventCard type="upcoming" v-bind="config" />
-      <div heading-lg pt-24px>
-        Live
-      </div>
-      <TEventCard type="live" v-bind="config" />
-      <div heading-lg pt-24px>
-        Past
-      </div>
-      <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
-      <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
+  <div w-full flex flex-col gap-48px px-100px>
+    <div heading-lg pt-24px>
+      Upcoming
     </div>
+    <TEventCard type="upcoming" v-bind="config" />
+    <div heading-lg pt-24px>
+      Live
+    </div>
+    <TEventCard type="live" v-bind="config" />
+    <div heading-lg pt-24px>
+      Past
+    </div>
+    <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
+    <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
   </div>
 </template>

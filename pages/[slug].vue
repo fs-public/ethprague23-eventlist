@@ -58,23 +58,35 @@ const mockStages: Stage[] = [
 </script>
 
 <template>
-  <div flex justify-center>
-    <div w-full max-w="80%" flex flex-col gap-48px>
-      hello from {{ slug }}
-      <div flex flex-col gap-48px>
-        <div heading-lg>
-          12. 5. - Tuesday
-        </div>
-        <div flex gap-48px pb-30px>
-          <TStageDetail v-for="(stage, i) in mockStages" :key="i" v-bind="stage" />
-        </div>
-        <div heading-lg>
-          13. 5. - Wednesday
-        </div>
-        <div flex gap-48px>
-          <TStageDetail v-for="(stage, i) in mockStages.slice(0, 2)" :key="i" v-bind="stage" />
-        </div>
+  <div relative flex flex-col items-center gap-32px w-full p-52px class="live-gradient">
+    <div w-110px h-130px bg-black />
+    <div heading-lg>
+      {{ slug }}
+    </div>
+    <a href="./">
+      <UnoIcon absolute left-32px top-32px w-32px h-32px i-ph-arrow-left />
+    </a>
+  </div>
+  <div w-full px-100px pt-48px flex flex-col gap-48px>
+    <div flex flex-col gap-48px>
+      <div heading-lg>
+        12. 5. - Tuesday
+      </div>
+      <div flex gap-48px pb-30px>
+        <TStageDetail v-for="(stage, i) in mockStages" :key="i" v-bind="stage" />
+      </div>
+      <div heading-lg>
+        13. 5. - Wednesday
+      </div>
+      <div flex gap-48px>
+        <TStageDetail v-for="(stage, i) in mockStages.slice(0, 2)" :key="i" v-bind="stage" />
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.live-gradient {
+  background: linear-gradient(110.1deg, #A0E9F1 13.39%, #E4F7EC 48.77%, #F7F1E1 87.51%);
+}
+</style>

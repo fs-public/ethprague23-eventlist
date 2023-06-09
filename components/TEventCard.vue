@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EventImageProps } from './TEventImage'
+import type { EventImageProps } from './TEventImage.vue'
 
 export type EventCardType = 'upcoming' | 'live' | 'past'
 
