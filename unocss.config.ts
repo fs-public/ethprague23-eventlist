@@ -50,7 +50,7 @@ export default defineConfig({
       white: '#FFFFFF',
       black: '#000000',
       bggray: {
-        100: '#FAFAFA',
+        100: '#F0F0F0',
         300: '#D9D9D9',
       },
       gray: {

@@ -9,9 +9,14 @@ const event: Omit<DEvent, 'type'> = {
     { name: 'Stage 2', url: '#' },
   ],
 }
+
+const selected = ref(false)
 </script>
 
 <template>
+  <UIPill v-model="selected">
+    All Events
+  </UIPill>
   <div page-container gap-48px>
     <div heading-lg pt-24px>
       Upcoming
