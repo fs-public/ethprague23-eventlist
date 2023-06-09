@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { Event, TimeStatus } from '~/types'
+defineProps<{ event: DEvent }>()
 
-defineProps<{ event: Event }>()
-
-const cardStyles: { [key in TimeStatus]: string } = {
+const cardStyles: { [key in DTimeStatus]: string } = {
   upcoming: 'bg-bggray-300 opacity-50',
   live: 'bg-shiny-gradient',
   past: 'bg-bggray-300',

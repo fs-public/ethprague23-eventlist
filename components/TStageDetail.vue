@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { Stage } from '~/types'
-
-defineProps<{ stage: Stage }>()
+defineProps<{ stage: DStage }>()
 </script>
 
 <template>

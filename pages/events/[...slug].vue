@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type { Activity, Stage } from '~/types'
-
 const { slug } = useRoute().params
 const slugs = Array.isArray(slug) ? slug : [slug]
 
-const activities: Activity[] = [
+const activities: DActivity[] = [
   {
     status: 'past',
     name: 'Degens all always right!',
@@ -51,7 +49,7 @@ const activities: Activity[] = [
 
 activities.forEach(activity => activity.url = '#')
 
-const mockStages: Stage[] = [
+const mockStages: DStage[] = [
   { name: 'Stage 1', url: getEventUrl('stage1', slugs), activities },
   { name: 'Stage 2', url: getEventUrl('stage2', slugs), activities },
   { name: 'Hackathon', url: getEventUrl('hackathon', slugs), activities },

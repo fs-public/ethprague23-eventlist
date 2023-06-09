@@ -1,22 +1,22 @@
-export type TimeStatus = 'upcoming' | 'live' | 'past'
+export type DTimeStatus = 'upcoming' | 'live' | 'past'
 
-export interface Event {
-  type: TimeStatus
+export interface DEvent {
+  type: DTimeStatus
   name?: string
   subheadline?: string
   programUrl?: string
-  stages?: Stage[]
+  stages?: DStage[]
 }
 
-export interface Stage {
+export interface DStage {
   name?: string
   image?: string
   url?: string
-  activities?: Activity[]
+  activities?: DActivity[]
 }
 
-export interface Activity {
-  status: TimeStatus
+export interface DActivity {
+  status: DTimeStatus
   name: string
   time: string
   speaker: string

@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { Stage } from '~/types'
-
-defineProps<{ stage: Stage }>()
+defineProps<{ stage: DStage }>()
 
 const objectClass = 'rounded-32px w-400px aspect-[4/3] bg-white'
 </script>

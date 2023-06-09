@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { Activity, TimeStatus } from '~/types'
+defineProps<{ activity: DActivity }>()
 
-defineProps<{ activity: Activity }>()
-
-const icons: { [key in TimeStatus]: string } = {
+const icons: { [key in DTimeStatus]: string } = {
   past: 'i-ph-triangle-fill rotate-90',
   live: 'i-ph-circle-fill text-green',
   upcoming: 'hidden',

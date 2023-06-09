@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { Event } from '~/types'
-
-const event: Partial<Event> = {
+const event: Omit<DEvent, 'type'> = {
   name: 'ETH Prague 2023',
   subheadline: '2 stages - 25 Presentations -  1 Hackathon',
   programUrl: '/events/ethprague23',
