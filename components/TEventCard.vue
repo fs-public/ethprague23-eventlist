@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ event: DEvent }>()
+defineProps<{ event: DEvent; type: 'past' | 'live' | 'upcoming' }>()
 
 const cardStyles: { [key in DTimeStatus]: string } = {
   upcoming: 'bg-bggray-300',
@@ -26,11 +26,11 @@ const cardStyles: { [key in DTimeStatus]: string } = {
             </div>
           </div>
         </div>
-        <NuxtLink :to="event.programUrl" heading-md pt-24px gray-link>
+        <NuxtLink :to="`events/${event.slug}`" heading-md pt-24px gray-link>
           Full Program
         </NuxtLink>
       </div>
-      <div v-if="event.stages && event.stages.length > 0" flex gap-32px pt-40px>
+      <div v-if="event.stages?.length && type !== 'past'" flex gap-32px pt-40px>
         <TStageImage v-for="(stage, i) in event.stages" :key="i" :stage="stage" />
       </div>
     </div>
