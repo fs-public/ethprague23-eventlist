@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { EventImageProps } from './TEventImage'
 
-type EventCardType = 'upcoming' | 'live' | 'past'
+export type EventCardType = 'upcoming' | 'live' | 'past'
 
 interface EventCardProps {
   type: EventCardType
