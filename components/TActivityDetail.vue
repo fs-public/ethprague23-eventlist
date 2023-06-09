@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import type { EventCardType } from './TEventCard.vue'
+import type { Activity, TimeStatus } from '~/types'
 
-export interface Activity {
-  status: EventCardType
-  name: string
-  time: string
-  speaker: string
-  url?: string
-}
+defineProps<{ activity: Activity }>()
 
-defineProps<Activity>()
-
-const icons: { [key in EventCardType]: string } = {
+const icons: { [key in TimeStatus]: string } = {
   past: 'i-ph-triangle-fill rotate-90',
   live: 'i-ph-circle-fill text-green',
   upcoming: 'hidden',
@@ -19,13 +11,13 @@ const icons: { [key in EventCardType]: string } = {
 </script>
 
 <template>
-  <NuxtLink :to="url" text-md :class="{ '[&:hover:not(:active)]:bg-bggray-100': url }">
+  <NuxtLink :to="activity.url" text-md :class="{ '[&:hover:not(:active)]:bg-bggray-100': activity.url }">
     <div text-gray-600>
-      {{ time }} / {{ speaker }}
+      {{ activity.time }} / {{ activity.speaker }}
     </div>
-    <div flex gap-12px items-center :class="{ 'text-gray-600': status === 'upcoming' }">
-      <UnoIcon :class="icons[status]" />
-      {{ name }}
+    <div flex gap-12px items-center :class="{ 'text-gray-600': activity.status === 'upcoming' }">
+      <UnoIcon :class="icons[activity.status]" />
+      {{ activity.name }}
     </div>
   </NuxtLink>
 </template>

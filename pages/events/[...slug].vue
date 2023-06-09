@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Activity } from '../../components/TActivityDetail.vue'
-import type { Stage } from '../../components/TStageDetail.vue'
+import type { Activity, Stage } from '~/types'
 
 const { slug } = useRoute().params
 const slugs = Array.isArray(slug) ? slug : [slug]
@@ -53,10 +52,10 @@ const activities: Activity[] = [
 activities.forEach(activity => activity.url = '#')
 
 const mockStages: Stage[] = [
-  { general: { name: 'Stage 1', url: getEventUrl('stage1', slugs) }, activities },
-  { general: { name: 'Stage 2', url: getEventUrl('stage2', slugs) }, activities },
-  { general: { name: 'Hackathon', url: getEventUrl('hackathon', slugs) }, activities },
-  { general: { name: 'Hackathon #2', url: getEventUrl('hackathon2', slugs) }, activities },
+  { name: 'Stage 1', url: getEventUrl('stage1', slugs), activities },
+  { name: 'Stage 2', url: getEventUrl('stage2', slugs), activities },
+  { name: 'Hackathon', url: getEventUrl('hackathon', slugs), activities },
+  { name: 'Hackathon #2', url: getEventUrl('hackathon2', slugs), activities },
 ]
 </script>
 
@@ -75,13 +74,13 @@ const mockStages: Stage[] = [
       12. 5. - Tuesday
     </div>
     <div flex flex-wrap gap-48px pb-30px>
-      <TStageDetail v-for="(stage, i) in mockStages" :key="i" v-bind="stage" />
+      <TStageDetail v-for="(stage, i) in mockStages" :key="i" :stage="stage" />
     </div>
     <div heading-lg>
       13. 5. - Wednesday
     </div>
     <div flex flex-wrap gap-48px>
-      <TStageDetail v-for="(stage, i) in mockStages.slice(0, 2)" :key="i" v-bind="stage" />
+      <TStageDetail v-for="(stage, i) in mockStages.slice(0, 2)" :key="i" :stage="stage" />
     </div>
   </div>
 </template>
