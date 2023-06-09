@@ -36,7 +36,7 @@ const cardStyles: { [key in EventCardType]: string } = {
         Full Program
       </a>
     </div>
-    <div v-if="events && events.length > 0">
+    <div v-if="events && events.length > 0" flex gap-32px pt-100px>
       <TEventImage v-for="(event, i) in events" :key="i" v-bind="event" />
     </div>
   </div>

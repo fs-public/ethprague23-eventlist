@@ -8,7 +8,11 @@ import {
 } from 'unocss'
 
 export default defineConfig({
-  shortcuts: [],
+  shortcuts: [
+    { 'heading-lg': 'text-48px leading-48px tracking-wide font-[archivo]' },
+    { 'heading-md': 'text-32px leading-24px tracking-wide font-[archivo]' },
+    { 'heading-sm': 'text-24px leading-24px tracking-wide font-[archivo]' },
+  ],
   presets: [
     presetUno(),
     presetAttributify(),
