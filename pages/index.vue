@@ -2,7 +2,7 @@
 const config = {
   name: 'ETH Prague 2023',
   subheadline: '2 stages - 25 Presentations -  1 Hackathon',
-  programUrl: './test/ethprague23',
+  programUrl: './ethprague23',
   events: [
     { name: 'Hackathon', url: '#' },
     { name: 'Stage 1', url: '#' },

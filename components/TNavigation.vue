@@ -1,6 +1,6 @@
 <template>
   <div w-full flex justify-between px-32px py-36px>
-    <div>web3Stream</div>
+    <img src="/assets/web3Stream.png" alt="Logo">
     <div flex gap-32px text-gray-600 text-lg>
       <NuxtLink to="#" link>
         Discover

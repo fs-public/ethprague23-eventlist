@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Activity } from '../../../components/T/TActivityDetail.vue'
-import type { Stage } from '../../../components/T/TStageDetail.vue'
+import type { Activity } from '../components/TActivityDetail.vue'
+import type { Stage } from '../components/TStageDetail.vue'
 
 const { slug } = useRoute().params
 
@@ -62,7 +62,7 @@ const mockStages: Stage[] = [
 <template>
   <div>
     <div relative flex flex-col items-center gap-32px w-full p-52px class="live-gradient">
-      <div w-110px h-130px bg-black />
+      <img src="/assets/ethprague.png" alt="Event Logo" />
       <div heading-lg>
         {{ slug }}
       </div>
