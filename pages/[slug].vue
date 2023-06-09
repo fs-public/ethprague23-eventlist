@@ -61,7 +61,7 @@ const mockStages: Stage[] = [
 
 <template>
   <div>
-    <div relative flex flex-col items-center gap-32px w-full p-52px class="live-gradient">
+    <div relative flex flex-col items-center gap-32px w-full p-52px class="bg-shiny-gradient">
       <img src="/assets/ethprague.png" alt="Event Logo">
       <div heading-lg>
         {{ slug }}
@@ -88,9 +88,3 @@ const mockStages: Stage[] = [
     </div>
   </div>
 </template>
-
-<style scoped>
-.live-gradient {
-  background: linear-gradient(110.1deg, #A0E9F1 13.39%, #E4F7EC 48.77%, #F7F1E1 87.51%);
-}
-</style>

@@ -16,7 +16,7 @@ withDefaults(defineProps<EventCardProps>(), {
 
 const cardStyles: { [key in EventCardType]: string } = {
   upcoming: 'bg-bggray-300 opacity-50',
-  live: 'live-gradient',
+  live: 'bg-shiny-gradient',
   past: 'bg-bggray-300',
 }
 </script>
@@ -41,9 +41,3 @@ const cardStyles: { [key in EventCardType]: string } = {
     </div>
   </div>
 </template>
-
-<style scoped>
-.live-gradient {
-  background: linear-gradient(110.1deg, #A0E9F1 13.39%, #E4F7EC 48.77%, #F7F1E1 87.51%);
-}
-</style>
