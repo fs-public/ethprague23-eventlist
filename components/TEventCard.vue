@@ -32,7 +32,7 @@ const cardStyles: { [key in EventCardType]: string } = {
           {{ subheadline }}
         </div>
       </div>
-      <a :href="programUrl" headline-md pt-24px>
+      <a :href="programUrl" heading-md pt-24px link>
         Full Program
       </a>
     </div>

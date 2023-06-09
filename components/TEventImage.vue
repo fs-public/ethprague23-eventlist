@@ -12,7 +12,7 @@ const objectClass = 'rounded-32px w-400px aspect-[4/3] bg-white'
 
 <template>
   <a :href="url">
-    <img v-if="image" :src="image" :class="objectClass">
+    <img v-if="image" :src="image" :alt="name" :class="objectClass">
     <div v-else :class="objectClass" flex justify-center items-center heading-md>
       {{ name || "Event" }}
     </div>
