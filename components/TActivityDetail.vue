@@ -19,7 +19,7 @@ const icons: { [key in EventCardType]: string } = {
 </script>
 
 <template>
-  <NuxtLink :to="url" text-md :class="{ '[&:hover:not(:active)]:bg-gray-100': url }">
+  <NuxtLink :to="url" text-md :class="{ '[&:hover:not(:active)]:bg-bggray-100': url }">
     <div text-gray-600>
       {{ time }} / {{ speaker }}
     </div>

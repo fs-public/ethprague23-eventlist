@@ -14,7 +14,7 @@ export default defineConfig({
     { 'heading-sm': 'text-24px leading-24px tracking-wide font-archivo' },
     { 'text-lg': 'text-18px leading-24px tracking-0.05em font-inter' },
     { 'text-md': 'text-16px leading-24px tracking-0.05em font-inter' },
-    { link: '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-[#454545]' },
+    { link: '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-gray-300' },
   ],
   presets: [
     presetUno(),
@@ -38,11 +38,13 @@ export default defineConfig({
     colors: {
       white: '#FFFFFF',
       black: '#000000',
-      gray: {
+      bggray: {
         100: '#FAFAFA',
-        300: '#',
+        300: '#D9D9D9',
+      },
+      gray: {
+        300: '#454545',
         600: '#909090',
-        900: '#D9D9D9',
       },
       green: '#00FF47',
     },
