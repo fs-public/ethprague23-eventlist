@@ -8,13 +8,13 @@
         <img src="/assets/web3Stream.png" alt="Logo">
       </NuxtLink>
       <div flex gap-32px text-gray-600 text-lg>
-        <NuxtLink to="/" link>
+        <NuxtLink to="/discover" link active-class="text-black">
           Discover
         </NuxtLink>
-        <NuxtLink to="#" link>
+        <NuxtLink to="/mystreams" link active-class="text-black">
           My streams
         </NuxtLink>
-        <NuxtLink to="/about" link>
+        <NuxtLink to="/about" link active-class="text-black">
           About
         </NuxtLink>
       </div>

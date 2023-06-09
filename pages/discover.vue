@@ -1,5 +1,5 @@
 <template>
   <div page-container text-md>
-    About page
+    Discover page
   </div>
 </template>

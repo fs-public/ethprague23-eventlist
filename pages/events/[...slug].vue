@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import type { Activity } from '../components/TActivityDetail.vue'
-import type { Stage } from '../components/TStageDetail.vue'
+import type { Activity } from '../../components/TActivityDetail.vue'
+import type { Stage } from '../../components/TStageDetail.vue'
 
 const { slug } = useRoute().params
+const slugs = Array.isArray(slug) ? slug : [slug]
 
 const activities: Activity[] = [
   {
@@ -52,10 +53,10 @@ const activities: Activity[] = [
 activities.forEach(activity => activity.url = '#')
 
 const mockStages: Stage[] = [
-  { general: { name: 'Stage 1', url: '#' }, activities },
-  { general: { name: 'Stage 2', url: '#' }, activities },
-  { general: { name: 'Hackathon', url: '#' }, activities },
-  { general: { name: 'Hackathon #2', url: '#' }, activities },
+  { general: { name: 'Stage 1', url: getEventUrl('stage1', slugs) }, activities },
+  { general: { name: 'Stage 2', url: getEventUrl('stage2', slugs) }, activities },
+  { general: { name: 'Hackathon', url: getEventUrl('hackathon', slugs) }, activities },
+  { general: { name: 'Hackathon #2', url: getEventUrl('hackathon2', slugs) }, activities },
 ]
 </script>
 
@@ -63,7 +64,7 @@ const mockStages: Stage[] = [
   <div relative flex flex-col items-center gap-32px w-full p-52px class="bg-shiny-gradient">
     <img src="/assets/ethprague.png" alt="Event Logo">
     <div heading-lg>
-      {{ slug }}
+      {{ slugs.join('/') }}
     </div>
     <NuxtLink to="./">
       <UnoIcon absolute left-32px top-32px w-32px h-32px i-ph-arrow-left />
