@@ -10,14 +10,14 @@ const event: Omit<DEvent, 'type'> = {
   ],
 }
 
-const selected = ref(false)
+const selected = ref(0)
 </script>
 
 <template>
-  <UIPill v-model="selected">
-    All Events
-  </UIPill>
   <div page-container gap-48px>
+    <UIPillBox v-model="selected" :options="['All Events', 'PBW2023', 'ETH Zurich', 'Ethereum Events', 'Devcons', 'Web3privacy', 'More', 'Tags', 'Visible']">
+      All Events
+    </UIPillBox>
     <div heading-lg pt-24px>
       Upcoming
     </div>

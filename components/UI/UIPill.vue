@@ -1,22 +1,18 @@
 <script setup lang="ts">
 interface UIPillProps {
-  modelValue?: boolean
+  selected?: boolean
 }
 
-const props = defineProps<UIPillProps>()
+defineProps<UIPillProps>()
 
-const emit = defineEmits(['update:modelValue'])
-
-const modelSelected = useVModel(props, 'modelValue', emit)
-
-const toggleSelected = useToggle(modelSelected)
+const emit = defineEmits(['pillClicked'])
 </script>
 
 <template>
   <button
     px-24px py-12px rounded-200
-    :class="modelSelected ? 'bg-black text-white' : 'bg-bggray-100 text-gray-600'"
-    @click="toggleSelected()"
+    :class="selected ? 'bg-black text-white' : 'bg-bggray-100 text-gray-600'"
+    @click="emit('pillClicked')"
   >
     <slot />
   </button>
