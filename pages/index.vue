@@ -12,7 +12,7 @@ const config = {
 </script>
 
 <template>
-  <div w-full flex flex-col gap-48px px-100px>
+  <div page-container gap-48px>
     <div heading-lg pt-24px>
       Upcoming
     </div>

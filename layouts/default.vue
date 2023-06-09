@@ -4,15 +4,17 @@
 <template>
   <div>
     <div w-full flex justify-between px-32px py-36px>
-      <img src="/assets/web3Stream.png" alt="Logo">
+      <NuxtLink to="/">
+        <img src="/assets/web3Stream.png" alt="Logo">
+      </NuxtLink>
       <div flex gap-32px text-gray-600 text-lg>
-        <NuxtLink to="#" link>
+        <NuxtLink to="/" link>
           Discover
         </NuxtLink>
         <NuxtLink to="#" link>
           My streams
         </NuxtLink>
-        <NuxtLink to="#" link>
+        <NuxtLink to="/about" link>
           About
         </NuxtLink>
       </div>

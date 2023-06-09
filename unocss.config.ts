@@ -9,6 +9,8 @@ import {
 
 export default defineConfig({
   shortcuts: [
+    // Containers
+    { 'page-container': 'w-full flex flex-col px-100px' },
     // Typography
     { 'heading-lg': 'text-48px leading-48px tracking-wide font-archivo' },
     { 'heading-md': 'text-32px leading-24px tracking-wide font-archivo' },
