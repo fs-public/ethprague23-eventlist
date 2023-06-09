@@ -20,7 +20,8 @@ export default defineConfig({
     // Gradients
     { 'bg-shiny-gradient': 'bg-gradient-to-r bg-gradient-shape-[110deg] from-[#A0E9F1] from-13% via-[#E4F7EC] via-49% to-[#F7F1E1] to-88%' },
     // Utilities
-    { link: '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-gray-300' },
+    { 'gray-link': '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-gray-300' },
+    { 'blue-link': 'text-blue [&:hover:not(:active)]:underline [&:hover:not(:active)]:text-blue-dark' },
   ],
   presets: [
     presetUno(),
@@ -50,7 +51,8 @@ export default defineConfig({
       white: '#FFFFFF',
       black: '#000000',
       bggray: {
-        100: '#FAFAFA',
+        100: '#F0F0F0',
+        200: '#E0E0E0',
         300: '#D9D9D9',
       },
       gray: {
@@ -58,6 +60,10 @@ export default defineConfig({
         600: '#909090',
       },
       green: '#00FF47',
+      blue: {
+        DEFAULT: '#0019FF',
+        dark: '#0D21D6',
+      },
     },
   },
 })
