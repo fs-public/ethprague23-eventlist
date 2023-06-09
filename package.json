@@ -8,14 +8,14 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
-    "cleanup": "nuxt cleanup",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "premerge": "pnpm cleanup && pnpm i && pnpm lint && pnpm typecheck && pnpm build",
-    "typecheck": "nuxt typecheck --no-emit"
+    "typecheck": "nuxt typecheck --no-emit",
+    "cleanup": "nuxt cleanup",
+    "premerge": "pnpm cleanup && pnpm i && pnpm lint && pnpm typecheck && pnpm build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.6",
