@@ -15,9 +15,9 @@ withDefaults(defineProps<EventCardProps>(), {
 })
 
 const cardStyles: { [key in EventCardType]: string } = {
-  upcoming: 'bg-[#D9D9D9] opacity-50',
+  upcoming: 'bg-gray-900 opacity-50',
   live: 'live-gradient',
-  past: 'bg-[#D9D9D9]',
+  past: 'bg-gray-900',
 }
 </script>
 

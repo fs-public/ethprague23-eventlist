@@ -13,17 +13,17 @@ defineProps<Activity>()
 
 const icons: { [key in EventCardType]: string } = {
   past: 'i-ph-triangle-fill rotate-90',
-  live: 'i-ph-circle-fill text-[#00FF47]',
+  live: 'i-ph-circle-fill text-green',
   upcoming: 'hidden',
 }
 </script>
 
 <template>
-  <NuxtLink :to="url" text-md :class="{ '[&:hover:not(:active)]:bg-[#FAFAFA]': url }">
-    <div text="#909090">
+  <NuxtLink :to="url" text-md :class="{ '[&:hover:not(:active)]:bg-gray-100': url }">
+    <div text-gray-600>
       {{ time }} / {{ speaker }}
     </div>
-    <div flex gap-12px items-center :class="{ 'text-[#909090]': status === 'upcoming' }">
+    <div flex gap-12px items-center :class="{ 'text-gray-600': status === 'upcoming' }">
       <UnoIcon :class="icons[status]" />
       {{ name }}
     </div>
