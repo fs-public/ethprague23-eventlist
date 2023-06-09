@@ -32,9 +32,9 @@ const cardStyles: { [key in EventCardType]: string } = {
           {{ subheadline }}
         </div>
       </div>
-      <a :href="programUrl" heading-md pt-24px link>
+      <NuxtLink :to="programUrl" heading-md pt-24px link>
         Full Program
-      </a>
+      </NuxtLink>
     </div>
     <div v-if="events && events.length > 0" flex gap-32px pt-100px>
       <TEventImage v-for="(event, i) in events" :key="i" v-bind="event" />
