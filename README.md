@@ -1,42 +1,23 @@
-# Nuxt 3 Minimal Starter
+# ETH Prague 2023 - Event List
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Badges
 
-## Setup
+Motivation
 
-Make sure to install the dependencies:
+Authors
+
+## Installation
+
+Uses `pnpm@8.6.1` and `Nuxt3`.
+
+To install:
 
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
 pnpm install
 ```
 
-## Development Server
+Afterwards, you run development environment with `pnpm dev` and build for production with `pnpm build`.
 
-Start the development server on `http://localhost:3000`
+## Technologies
 
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Open points
