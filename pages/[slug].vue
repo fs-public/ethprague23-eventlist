@@ -18,7 +18,7 @@ const mockStages: Stage[] = [
       },
       {
         status: 'past',
-        name: 'I\.m right and you know it',
+        name: 'I\'m right and you know it',
         time: '14:30 - 15:00',
         speaker: 'Vitalik',
       },

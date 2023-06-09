@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EventCardType } from './TEventCard.vue'
+import type { Activity } from './TActivityDetail.vue'
 import type { EventImageProps } from './TEventImage.vue'
 
 export interface Stage {
@@ -7,18 +7,17 @@ export interface Stage {
   activities?: Activity[]
 }
 
-interface Activity {
-  status: EventCardType
-  name: string
-  time: string
-  speaker: string
-}
-
 defineProps<Stage>()
 </script>
 
 <template>
   <div>
-    hello from {{ general.name }}
+    <div heading-lg>
+      {{ general.name }}
+    </div>
+    <TEventImage v-bind="general" />
+    <div flex flex-col gap-24px>
+      <TActivityDetail v-for="(activity, i) in activities" :key="i" v-bind="activity" />
+    </div>
   </div>
 </template>
