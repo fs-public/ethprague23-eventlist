@@ -1,12 +1,14 @@
 <script setup lang="ts">
 const event: Omit<DEvent, 'type'> = {
   name: 'ETH Prague 2023',
-  subheadline: '2 stages - 25 Presentations -  1 Hackathon',
+  subheadline: '3 subevents / 120 Speakers / 1 Hackathon',
+  date: '9. - 11. June 2023',
+  image: '/assets/ethprague-shiny.png',
   programUrl: '/events/ethprague23',
   stages: [
-    { name: 'Hackathon', url: '#' },
-    { name: 'Stage 1', url: '#' },
-    { name: 'Stage 2', url: '#' },
+    { name: 'Hackathon', url: '#', image: 'assets/polis.png' },
+    { name: 'Stage 1', url: '#', image: 'assets/ethprague-shiny.png' },
+    { name: 'Stage 2', url: '#', image: 'assets/hub.png' },
   ],
 }
 
@@ -14,19 +16,19 @@ const selected = ref(0)
 </script>
 
 <template>
-  <div page-container gap-48px>
+  <div page-container gap-32px>
     <UIPillBox v-model="selected" :options="['All Events', 'PBW2023', 'ETH Zurich', 'Ethereum Events', 'Devcons', 'Web3privacy', 'More', 'Tags', 'Visible']">
       All Events
     </UIPillBox>
-    <div heading-lg pt-24px>
-      Upcoming
-    </div>
-    <TEventCard :event="{ ...event, type: 'upcoming' }" />
-    <div heading-lg pt-24px>
+    <div heading-lg pt-16px>
       Live
     </div>
     <TEventCard :event="{ ...event, type: 'live' }" />
-    <div heading-lg pt-24px>
+    <div heading-lg pt-16px>
+      Upcoming
+    </div>
+    <TEventCard :event="{ ...event, type: 'upcoming' }" />
+    <div heading-lg pt-16px>
       Past
     </div>
     <TEventCard :event="{ ...event, type: 'past', stages: undefined }" />

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 defineProps<{ stage: DStage }>()
-
-const objectClass = 'rounded-32px w-400px aspect-[4/3] bg-white'
 </script>
 
 <template>
-  <NuxtLink :to="stage.url" :inherit-attrs="false">
-    <img v-if="stage.image" :src="stage.image" :alt="stage.name" :class="objectClass" v-bind="$attrs">
-    <div v-else :class="objectClass" flex justify-center items-center heading-md v-bind="$attrs">
-      {{ stage.name || "Stage" }}
+  <NuxtLink :to="stage.url">
+    <div rounded-16px overflow-hidden>
+      <img :src="stage.image" :alt="stage.name" w-264px h-200px object-cover>
+      <div text-lg px-20px py-16px bg-white>
+        {{ stage.name }}
+      </div>
     </div>
   </NuxtLink>
 </template>

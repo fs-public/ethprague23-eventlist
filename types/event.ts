@@ -4,6 +4,8 @@ export interface DEvent {
   type: DTimeStatus
   name?: string
   subheadline?: string
+  date?: string
+  image?: string
   programUrl?: string
   stages?: DStage[]
 }
