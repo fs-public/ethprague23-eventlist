@@ -7,7 +7,7 @@
 </template>
 
 <style scoped>
-html,body, #__nuxt {
+html, body, #__nuxt {
   @apply h-full;
 }
 </style>
