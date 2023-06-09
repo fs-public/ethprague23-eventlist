@@ -18,7 +18,7 @@
           About
         </NuxtLink>
       </div>
-      <div>Connect Wallet (TODO)</div>
+      <TWalletButton />
     </div>
     <div grow overflow-x-hidden>
       <Suspense>
