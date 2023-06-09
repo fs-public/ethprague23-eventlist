@@ -49,6 +49,8 @@ const activities: Activity[] = [
   },
 ]
 
+activities.forEach(activity => activity.url = '#')
+
 const mockStages: Stage[] = [
   { general: { name: 'Stage 1', url: '#' }, activities },
   { general: { name: 'Stage 2', url: '#' }, activities },
@@ -67,18 +69,18 @@ const mockStages: Stage[] = [
       <UnoIcon absolute left-32px top-32px w-32px h-32px i-ph-arrow-left />
     </a>
   </div>
-  <div w-full px-100px pt-48px flex flex-col gap-48px>
+  <div w-full px-100px pt-48px>
     <div flex flex-col gap-48px>
       <div heading-lg>
         12. 5. - Tuesday
       </div>
-      <div flex gap-48px pb-30px>
+      <div flex flex-wrap gap-48px pb-30px>
         <TStageDetail v-for="(stage, i) in mockStages" :key="i" v-bind="stage" />
       </div>
       <div heading-lg>
         13. 5. - Wednesday
       </div>
-      <div flex gap-48px>
+      <div flex flex-wrap gap-48px>
         <TStageDetail v-for="(stage, i) in mockStages.slice(0, 2)" :key="i" v-bind="stage" />
       </div>
     </div>

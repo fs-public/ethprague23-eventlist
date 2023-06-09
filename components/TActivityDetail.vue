@@ -6,6 +6,7 @@ export interface Activity {
   name: string
   time: string
   speaker: string
+  url?: string
 }
 
 defineProps<Activity>()
@@ -18,7 +19,7 @@ const icons: { [key in EventCardType]: string } = {
 </script>
 
 <template>
-  <div text-md>
+  <a :href="url" text-md :class="{ '[&:hover:not(:active)]:bg-[#FAFAFA]': url }">
     <div text="#909090">
       {{ time }} / {{ speaker }}
     </div>
@@ -26,5 +27,5 @@ const icons: { [key in EventCardType]: string } = {
       <UnoIcon :class="icons[status]" />
       {{ name }}
     </div>
-  </div>
+  </a>
 </template>

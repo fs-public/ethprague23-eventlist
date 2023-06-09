@@ -12,6 +12,7 @@ const config = {
 </script>
 
 <template>
+  <TNavigation />
   <div w-full flex flex-col gap-48px px-100px>
     <div heading-lg pt-24px>
       Upcoming

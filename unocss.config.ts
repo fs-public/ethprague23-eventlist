@@ -12,8 +12,9 @@ export default defineConfig({
     { 'heading-lg': 'text-48px leading-48px tracking-wide font-[archivo]' },
     { 'heading-md': 'text-32px leading-24px tracking-wide font-[archivo]' },
     { 'heading-sm': 'text-24px leading-24px tracking-wide font-[archivo]' },
+    { 'text-lg': 'text-18px leading-24px tracking-0.05em font-[Inter]' },
     { 'text-md': 'text-16px leading-24px tracking-0.05em font-[Inter]' },
-    { link: 'text-black [&:hover:not(:active)]:underline [&:hover:not(:active)]:text-[#454545]' },
+    { link: '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-[#454545]' },
   ],
   presets: [
     presetUno(),
