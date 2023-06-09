@@ -1,15 +1,25 @@
 {
   "name": "ethprague-eventlist",
-  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.6.1",
+  "description": "",
+  "author": "Filip Svoboda, Daniel Klein, coinmandeer, tree",
+  "license": "MIT",
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
+    "build": "nuxt build",
+    "cleanup": "nuxt cleanup",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "premerge": "pnpm cleanup && pnpm i && pnpm lint && pnpm typecheck && pnpm build",
+    "typecheck": "pnpm typecheck"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.6",
+    "@iconify-json/ph": "^1.1.5",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.1.1",
     "@pinia/nuxt": "^0.4.11",
@@ -19,8 +29,5 @@
     "eslint": "^8.40.0",
     "nuxt": "^3.5.2",
     "nuxt-headlessui": "^1.1.4"
-  },
-  "dependencies": {
-    "@iconify-json/ph": "^1.1.5"
   }
 }
