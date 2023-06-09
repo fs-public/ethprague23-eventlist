@@ -11,11 +11,11 @@ defineProps<Stage>()
 </script>
 
 <template>
-  <div>
-    <div heading-lg>
+  <div flex flex-col gap-48px>
+    <div heading-md>
       {{ general.name }}
     </div>
-    <TEventImage v-bind="general" />
+    <TEventImage v-bind="general" bg="#E8E8E8" />
     <div flex flex-col gap-24px>
       <TActivityDetail v-for="(activity, i) in activities" :key="i" v-bind="activity" />
     </div>
