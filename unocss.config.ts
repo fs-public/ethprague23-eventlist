@@ -9,12 +9,14 @@ import {
 
 export default defineConfig({
   shortcuts: [
+    // Containers
+    { 'page-container': 'w-full flex flex-col px-12px md:px-60px lg:px-100px' },
     // Typography
-    { 'heading-lg': 'text-48px leading-48px tracking-wide font-archivo' },
-    { 'heading-md': 'text-32px leading-24px tracking-wide font-archivo' },
-    { 'heading-sm': 'text-24px leading-24px tracking-wide font-archivo' },
-    { 'text-lg': 'text-18px leading-24px tracking-0.05em font-inter' },
-    { 'text-md': 'text-16px leading-24px tracking-0.05em font-inter' },
+    { 'heading-lg': 'text-36px leading-36px md:text-42px md:leading-42px lg:text-48px lg:leading-48px tracking-wide font-archivo' },
+    { 'heading-md': 'text-22px leading-22px md:text-26px md:leading-26px lg:text-32px lg:leading-32px tracking-wide font-archivo' },
+    { 'heading-sm': 'text-16px leading-16px md:text-20px md:leading-20px lg:text-24px lg:leading-24px tracking-wide font-archivo' },
+    { 'text-lg': 'text-14px leading-18px md:text-16px md:leading-22px lg:text-18px lg:leading-24px tracking-0.05em font-inter' },
+    { 'text-md': 'text-12px leading-16px md:text-14px md:leading-22px lg:text-16px lg:leading-24px tracking-0.05em font-inter' },
     // Gradients
     { 'bg-shiny-gradient': 'bg-gradient-to-r bg-gradient-shape-[110deg] from-[#A0E9F1] from-13% via-[#E4F7EC] via-49% to-[#F7F1E1] to-88%' },
     // Utilities
@@ -39,6 +41,11 @@ export default defineConfig({
     ),
   ],
   theme: {
+    breakpoints: {
+      sm: '450px',
+      md: '800px',
+      lg: '1124px',
+    },
     colors: {
       white: '#FFFFFF',
       black: '#000000',

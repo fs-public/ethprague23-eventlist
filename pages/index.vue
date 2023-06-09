@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const config = {
+const event: Omit<DEvent, 'type'> = {
   name: 'ETH Prague 2023',
   subheadline: '2 stages - 25 Presentations -  1 Hackathon',
-  programUrl: './ethprague23',
-  events: [
+  programUrl: '/events/ethprague23',
+  stages: [
     { name: 'Hackathon', url: '#' },
     { name: 'Stage 1', url: '#' },
     { name: 'Stage 2', url: '#' },
@@ -12,19 +12,19 @@ const config = {
 </script>
 
 <template>
-  <div w-full flex flex-col gap-48px px-100px>
+  <div page-container gap-48px>
     <div heading-lg pt-24px>
       Upcoming
     </div>
-    <TEventCard type="upcoming" v-bind="config" />
+    <TEventCard :event="{ ...event, type: 'upcoming' }" />
     <div heading-lg pt-24px>
       Live
     </div>
-    <TEventCard type="live" v-bind="config" />
+    <TEventCard :event="{ ...event, type: 'live' }" />
     <div heading-lg pt-24px>
       Past
     </div>
-    <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
-    <TEventCard type="past" v-bind="{ ...config, events: undefined }" />
+    <TEventCard :event="{ ...event, type: 'past', stages: undefined }" />
+    <TEventCard :event="{ ...event, type: 'past', stages: undefined }" />
   </div>
 </template>

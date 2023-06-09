@@ -19,7 +19,10 @@ export default defineNuxtConfig({
   },
   imports: {
     imports: [
-      { type: true, name: 'TestInterface', from: './types' },
+      { type: true, name: 'DTimeStatus', from: './types' },
+      { type: true, name: 'DEvent', from: './types' },
+      { type: true, name: 'DStage', from: './types' },
+      { type: true, name: 'DActivity', from: './types' },
     ],
   },
   pinia: {
