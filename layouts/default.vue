@@ -22,7 +22,7 @@
         </NuxtLink>
       </div>
       <UIInput type="search" />
-      <div>Connect Wallet (TODO)</div>
+      <TWalletButton />
     </div>
     <div w-full h-1px bg-bggray-200 mb-36px />
     <div grow overflow-x-hidden>
