@@ -9,7 +9,7 @@ const createOptionClass = 'option w-25% py-32px text-center text-blue     [&:hov
       <NuxtLink to="/">
         <img src="/assets/web3Stream.png" alt="Logo" mt="-5px">
       </NuxtLink>
-      <div relative flex min-w-430px text-gray-600 text-lg>
+      <div relative flex min-w-430px text-gray-600 text-lg overflow-hidden>
         <NuxtLink to="/" :class="optionClass" active-class="active text-black!">
           Discover
         </NuxtLink>
@@ -24,14 +24,15 @@ const createOptionClass = 'option w-25% py-32px text-center text-blue     [&:hov
         </NuxtLink>
         <div
           absolute left-0 bottom-0 h-3px w-full
-          bg-black transform-origin-bl transition-transform
+          bg-black transform-origin-bl transition-transform duration-300
+          translate-y-50px
           class="slider"
         />
       </div>
       <UIInput type="search" />
       <TWalletButton />
     </div>
-    <div w-full h-1px bg-bggray-200 mb-36px />
+    <div w-full h-1px bg-bggray-200 />
     <div grow overflow-x-hidden>
       <Suspense>
         <slot />

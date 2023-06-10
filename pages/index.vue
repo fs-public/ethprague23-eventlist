@@ -15,23 +15,23 @@
 const { sortedEvents, eventLists } = storeToRefs(useEvents())
 
 const selected = ref(0)
-
-const pillSelect = ref(0)
 </script>
 
 <template>
-  <div w-400px border-b-1 border-b-bggray-200 mb-50px>
-    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />
-  </div>
-  <div page-container gap-32px>
+  <div w-full bg-bggray-50 py-24px px-32px>
+    <div text-lg text-gray-600 mb-16px>
+      Choose event list:
+    </div>
     <UIPillBox v-model="selected" :options="['All Events', ...eventLists]">
       All Events
     </UIPillBox>
-    <template v-for="eventType in Object.keys(sortedEvents)" :key="eventType">
-      <div v-if="sortedEvents[eventType as 'past' | 'live' | 'upcoming'].length" heading-lg pt-16px capitalize>
-        {{ eventType }}
+  </div>
+  <div page-container gap-48px pt-32px>
+    <div v-for="eventType in Object.keys(sortedEvents)" :key="eventType">
+      <div v-if="sortedEvents[eventType as 'past' | 'live' | 'upcoming'].length" heading-md pb-16px capitalize>
+        {{ { live: "Live Now", upcoming: "Upcoming Events", past: "Past Events" }[eventType] }}
       </div>
       <TEventCard v-for="event in sortedEvents[eventType as 'past' | 'live' | 'upcoming']" :key="event.slug" :event="event" :type="(eventType as 'past' | 'live' | 'upcoming')" />
-    </template>
+    </div>
   </div>
 </template>

@@ -1,16 +1,16 @@
 export const useEvents = defineStore('events', () => {
-  const eventLists = ref<string[]>()
-  const events = ref<DEvent[]>()
+  const eventLists = ref<string[]>([])
+  const events = ref<DEvent[]>([])
 
   const fetchEventLists = async (force?: boolean) => {
-    if (eventLists.value && !force)
+    if (eventLists.value.length && !force)
       return
 
     eventLists.value = await $fetch('/api/event-lists', { method: 'GET' })
   }
 
   const fetchEvents = async (force?: boolean) => {
-    if (events.value && !force)
+    if (events.value.length && !force)
       return
 
     events.value = (await $fetch('/api/events', { method: 'GET' }))
@@ -28,7 +28,7 @@ export const useEvents = defineStore('events', () => {
     }
 
     const currentDate = new Date().getTime()
-    if (events.value) {
+    if (events.value && events.value.length) {
       for (const event of events.value) {
         const startDate = new Date(event.startDate).getTime()
         const endDate = new Date(event.endDate).getTime()
@@ -51,8 +51,10 @@ export const useEvents = defineStore('events', () => {
     return result
   })
 
-  fetchEventLists()
-  fetchEvents()
+  onMounted(() => {
+    fetchEventLists()
+    fetchEvents()
+  })
 
   return {
     eventLists,
