@@ -60,14 +60,32 @@ const pillSelect = ref(0)
 </script>
 
 <template>
-  <div relative flex flex-col items-center gap-32px w-full p-52px class="bg-shiny-gradient">
-    <img src="/assets/ethprague.png" alt="Event Logo">
+  <div relative flex flex-col items-center gap-16px w-full p-32px class="bg-shiny-gradient">
+    <img src="/assets/ethprague.png" alt="Event Logo" pb-8px>
     <div heading-lg>
       {{ slugs.join('/') }}
     </div>
-    <NuxtLink to="./">
-      <UnoIcon absolute left-32px top-32px w-32px h-32px i-ph-arrow-left />
-    </NuxtLink>
+    <div flex items-center text-lg>
+      {{ "date" }}
+      <UnoIcon i-ph-users-fill ml-16px mr-8px text-gray-600 />
+      {{ "number" }}
+    </div>
+    <div text-lg>
+      {{ "location" }}
+    </div>
+    <div flex gap-12px>
+      <div
+        v-for="(tag, i) in ['Hackathon', 'Conference']" :key="i"
+        rounded-8px border-1 border-black-lighter px-12px py-4px
+      >
+        {{ tag }}
+      </div>
+    </div>
+    <!-- Absolute side info and buttons -->
+    <div absolute left-32px top-32px flex justify-between class="w-[calc(100%-64px)]">
+      <div>Event is in {{ "number" }} event lists</div>
+      <div>Share</div>
+    </div>
   </div>
   <div w-400px border-b-1 border-b-bggray-200 mb-50px>
     <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />

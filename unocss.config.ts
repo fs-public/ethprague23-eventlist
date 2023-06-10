@@ -51,7 +51,10 @@ export default defineConfig({
     },
     colors: {
       white: '#FFFFFF',
-      black: '#000000',
+      black: {
+        DEFAULT: '#000000',
+        lighter: '#141414',
+      },
       bggray: {
         50: '#F8F8F8',
         100: '#F0F0F0',
