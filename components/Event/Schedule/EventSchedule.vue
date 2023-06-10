@@ -47,10 +47,10 @@ const mockActivities: DActivity[] = [
 mockActivities.forEach(activity => activity.url = '#')
 
 const mockStages: DStage[] = [
-  { name: 'Stage 1', url: getEventUrl('stage1'), mockActivities },
-  { name: 'Stage 2', url: getEventUrl('stage2'), mockActivities },
-  { name: 'Hackathon', url: getEventUrl('hackathon'), mockActivities },
-  { name: 'Hackathon #2', url: getEventUrl('hackathon2'), mockActivities },
+  { name: 'Stage 1', image: '/assets/polis.png', url: getEventUrl('stage1'), activities: mockActivities },
+  { name: 'Stage 2', image: '/assets/polis.png', url: getEventUrl('stage2'), activities: mockActivities },
+  { name: 'Hackathon', image: '/assets/polis.png', url: getEventUrl('hackathon'), activities: mockActivities },
+  { name: 'Hackathon #2', image: '/assets/polis.png', url: getEventUrl('hackathon2'), activities: mockActivities },
 ]
 </script>
 
