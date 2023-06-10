@@ -14,11 +14,12 @@ const sizeStyles = ['', 'w-100%', 'w-50%', 'w-33.33%', 'w-25%', 'w-20%', 'w-16.6
 </script>
 
 <template>
-  <div relative flex class="panel">
+  <div relative flex>
     <div
       v-for="(option, i) in options" :key="i"
-      text-center
-      :class="`option ${sizeStyles[options.length]} ${i === modelSelected ? 'active' : ''}`"
+      role="button"
+      cursor-pointer text-center mb-26px p-6px heading-sm hover:text-gray-300
+      :class="`option ${sizeStyles[options.length]} ${i === modelSelected ? 'active hover:text-black!' : 'text-gray-600'}`"
       @click="modelSelected = i"
     >
       {{ option }}
@@ -32,14 +33,6 @@ const sizeStyles = ['', 'w-100%', 'w-50%', 'w-33.33%', 'w-25%', 'w-20%', 'w-16.6
 </template>
 
 <style scoped>
-.panel {
-  &:after {
-    content: ' ';
-    display: table;
-    clear: both;
-  }
-}
-
 .option {
   &:first-child.active ~ .slider {
     transform: translateX(0);
