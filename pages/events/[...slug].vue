@@ -83,15 +83,15 @@ const socialIcons = {
     <div heading-lg>
       {{ slugs.join('/') }}
     </div>
-    <div flex items-center text-lg>
-      {{ "date" }}
+    <div flex items-center heading-xs>
+      {{ "June 9 – 11. 2023" }}
       <UnoIcon i-ph-users-fill ml-16px mr-8px text-gray-600 />
-      {{ "number" }}
+      {{ "750" }}
     </div>
-    <div text-lg>
-      {{ "location" }}
+    <div heading-xs>
+      {{ "Paralelní Polis, La Fabrika, Vnitroblock – Praha, CZ" }}
     </div>
-    <div flex gap-12px>
+    <div heading-xs flex gap-12px>
       <div
         v-for="(tag, i) in ['Hackathon', 'Conference']" :key="i"
         rounded-8px border-1 border-black-lighter px-12px py-4px
@@ -100,7 +100,7 @@ const socialIcons = {
       </div>
     </div>
     <!-- Absolute side info and buttons -->
-    <div absolute left-32px top-32px flex justify-between class="w-[calc(100%-64px)]" text-lg text-gray-600>
+    <div absolute left-32px top-32px flex justify-between class="w-[calc(100%-64px)]" heading-xs text-gray-600>
       <div>Event is in <span font-700>{{ "8" }} event lists</span></div>
       <div flex items-center gap-12px role="button">
         <UnoIcon i-ph-share-network-fill />Share
@@ -137,7 +137,7 @@ const socialIcons = {
       <div w-full grid grid-cols-1 gap-16px md:grid-cols-2 lg:grid-cols-3>
         <div v-for="i in 3" :key="i" flex items-center gap-16px>
           <img src="/assets/subevent.png" alt="Person" w-80px h-80px rounded-16px>
-          <div flex flex-col gap-4px>
+          <div flex flex-col gap-4px heading-xs>
             <div font-700>
               {{ "Boat Chill-zone" }}
             </div>
@@ -157,7 +157,7 @@ const socialIcons = {
         >
           <div flex items-center gap-8px>
             <UnoIcon :class="socialIcons[socialKey]" w-24px h-24px />
-            <div text-lg text-gray-600 capitalize>
+            <div heading-xs text-gray-600 capitalize>
               {{ socialKey }}
             </div>
           </div>
@@ -188,6 +188,36 @@ const socialIcons = {
         <div><span text-gray-600>Organizator: </span>{{ "DuckTape / Paralelni Polis" }}</div>
         <div display-none md:block />
         <div><span text-gray-600>Point of contact: </span>{{ "Josef J, Vojta" }}</div>
+      </div>
+    </div>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        {{ 3 }} VENUES
+      </div>
+      <div w-full grid grid-cols-1 gap-16px md:grid-cols-2 lg:grid-cols-3>
+        <div v-for="i in 3" :key="i" flex items-center gap-16px>
+          <img src="/assets/lafabrika.png" alt="Venue" w-80px h-80px rounded-16px>
+          <div flex flex-col gap-4px heading-xs>
+            <div font-700>
+              {{ "La Fabrika" }}
+            </div>
+            <div>{{ 450 }} people</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        POAP
+      </div>
+      <div flex items-center gap-32px>
+        <img src="/assets/ethprague-shiny.png" alt="Venue" w-200px h-200px rounded-full>
+        <div heading-sm>
+          <div text-gray-600>
+            Link:
+          </div>
+          <div>{{ "poap.delivery/ethprague" }}</div>
+        </div>
       </div>
     </div>
     <div heading-lg>
