@@ -2,7 +2,7 @@
 
 ![CI badge](https://github.com/fs-public/ethprague23-eventlist/actions/workflows/ci.yml/badge.svg)
 
-Motivation: todo
+Motivation: todo Coinmandeer
 
 **Authors**
 
@@ -28,6 +28,17 @@ pnpm install
 Afterwards, you run development environment with `pnpm dev` and build for production with `pnpm build`.
 
 ## Technologies
-Uses `pnpm@8.6.1` and `Nuxt3`.
+
+Fullstack project build with `Vue3` and `Nuxt3`. Uses `pinia`, `vue-use`, `unocss`, and `headlessui` on the frontend; connects to blockchain with `ethers`. Code quality assured with `eslint`, `typescript`, and `Github Actions`.
+
+**Integrations**: web3 ([metamask](https://metamask.io/)), [IPFS](https://ipfs.tech/), [StreamETH](https://streameth.org/)
 
 ## Open points
+
+- Finalize event standard -- see [proposal](https://ethevents.club/t/event-lists-an-event-list-standard/42), possibly RFC/EIP
+- Decide balance between gatekeeping and permissionlessness
+- Integrate StreamETH
+- Integrate Lens protocol
+- Run IPFS node and publish JSONs for real ETH events
+- Discuss smart contract (Gnosis chain?) for IPFS hash repository
+- Finish frontend views
