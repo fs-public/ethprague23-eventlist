@@ -1,9 +1,9 @@
 <script setup lang="ts">
-interface EventPageProps {
+interface EventHeroProps {
   slugs: string[]
 }
 
-defineProps<EventPageProps>()
+defineProps<EventHeroProps>()
 </script>
 
 <template>

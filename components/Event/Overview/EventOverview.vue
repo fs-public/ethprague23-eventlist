@@ -26,10 +26,7 @@ const mockPartners = [
 
 <template>
   <div page-container gap-48px>
-    <div>
-      <div heading-sm text-gray-600 mb-24px>
-        {{ 130 }} CONTRIBUTORS
-      </div>
+    <EventOverviewSection headline="130 CONTRIBUTORS">
       <div flex gap-16px>
         <img
           v-for="(_, i) in [...Array(100)].slice(0, 10)" :key="i" src="/assets/person.png" alt="Person" w-80px h-80px rounded-full
@@ -44,11 +41,8 @@ const mockPartners = [
           <span hidden xl:block>{{ 80 }}</span>
         </div>
       </div>
-    </div>
-    <div>
-      <div heading-sm text-gray-600 mb-24px>
-        {{ 3 }} SUB-EVENTS
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="3 SUB-EVENTS">
       <div w-full grid grid-cols-1 gap-16px md:grid-cols-2 lg:grid-cols-3>
         <div v-for="i in 3" :key="i" flex items-center gap-16px>
           <img src="/assets/subevent.png" alt="Person" w-80px h-80px rounded-16px>
@@ -60,11 +54,8 @@ const mockPartners = [
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div heading-sm text-gray-600 mb-24px>
-        SOCIALS
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="SOCIALS">
       <div w-full grid grid-cols-1 gap-32px md:grid-cols-2 lg:grid-cols-3>
         <div
           v-for="(socialKey, i) in (Object.keys(mockSocials) as (keyof typeof mockSocials)[])" :key="i"
@@ -81,11 +72,8 @@ const mockPartners = [
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div heading-sm text-gray-600 mb-16px>
-        DESCRIPTION
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="DESCRIPTION">
       <div heading-sm mb-24px>
         ETHPrague isn’t looking for the next get rich quickly scheme or groundbreaking DeFi apps, instead it’s an event
         focusing on the future potential of Ethereum and concepts or applications which don’t yet exist. We want to tackle
@@ -104,11 +92,8 @@ const mockPartners = [
         <div display-none md:block />
         <div><span text-gray-600>Point of contact: </span>{{ "Josef J, Vojta" }}</div>
       </div>
-    </div>
-    <div>
-      <div heading-sm text-gray-600 mb-24px>
-        {{ 3 }} VENUES
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="3 VENUES">
       <div w-full grid grid-cols-1 gap-16px md:grid-cols-2 lg:grid-cols-3>
         <div v-for="i in 3" :key="i" flex items-center gap-16px>
           <img src="/assets/lafabrika.png" alt="Venue" w-80px h-80px rounded-16px>
@@ -120,11 +105,8 @@ const mockPartners = [
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div heading-sm text-gray-600 mb-24px>
-        POAP
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="POAP">
       <div flex items-center gap-32px>
         <img src="/assets/ethprague-shiny.png" alt="Venue" w-200px h-200px rounded-full>
         <div heading-sm>
@@ -134,17 +116,14 @@ const mockPartners = [
           <div>{{ "poap.delivery/ethprague" }}</div>
         </div>
       </div>
-    </div>
-    <div pb-300px>
-      <div heading-sm text-gray-600 mb-24px>
-        PARTNERS
-      </div>
+    </EventOverviewSection>
+    <EventOverviewSection headline="PARTNERS" pb-300px>
       <div flex gap-48px heading-xs>
         <div v-for="(partner, i) in mockPartners" :key="i" flex flex-col items-center gap-8px>
           <img :src="partner.image" alt="Partner" w-230px h-100px object-contain>
           {{ partner.name }}
         </div>
       </div>
-    </div>
+    </EventOverviewSection>
   </div>
 </template>
