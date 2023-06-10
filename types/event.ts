@@ -1,20 +1,20 @@
 export type DTimeStatus = 'upcoming' | 'live' | 'past'
 
 export interface DEvent {
-  type: DTimeStatus
-  name?: string
-  subheadline?: string
-  date?: string
-  image?: string
-  programUrl?: string
-  stages?: DStage[]
+  slug: string
+  name: string
+  location: string
+  region: string
+  description: string
+  startDate: Date
+  endDate: Date
+  image: string
+  stages: DStage[]
 }
 
 export interface DStage {
-  name?: string
-  image?: string
-  url?: string
-  activities?: DActivity[]
+  name: string
+  image: string
 }
 
 export interface DActivity {
