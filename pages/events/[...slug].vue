@@ -106,6 +106,22 @@ const pillSelect = ref(0)
         </div>
       </div>
     </div>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        {{ 3 }} SUB-EVENTS
+      </div>
+      <div w-full grid grid-cols-1 gap-16px md:grid-cols-2 lg:grid-cols-3>
+        <div v-for="i in 3" :key="i" flex items-center gap-16px>
+          <img src="/assets/subevent.png" alt="Person" w-80px h-80px rounded-16px>
+          <div flex flex-col gap-4px>
+            <div font-700>
+              {{ "Boat Chill-zone" }}
+            </div>
+            <div>{{ "June 2023 – 17:00" }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div heading-lg>
       12. 5. - Tuesday
     </div>
