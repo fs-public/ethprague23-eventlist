@@ -167,6 +167,29 @@ const socialIcons = {
         </div>
       </div>
     </div>
+    <div>
+      <div heading-sm text-gray-600 mb-16px>
+        DESCRIPTION
+      </div>
+      <div heading-sm mb-24px>
+        ETHPrague isn’t looking for the next get rich quickly scheme or groundbreaking DeFi apps, instead it’s an event
+        focusing on the future potential of Ethereum and concepts or applications which don’t yet exist. We want to tackle
+        challenges which will or might arise in the next decade and we believe Ethereum will play a major role in solving these.
+        The future is in your hands, anon! You decide whether we end up living in a dark authoritarian dystopia or a bright
+        solarpunk utopia.
+      </div>
+      <div w-full grid grid-cols-1 gap-6px md:grid-cols-2 heading-sm>
+        <div><span text-gray-600>Chains: </span>{{ "Ethereum" }}</div>
+        <div><span text-gray-600>Entry: </span>{{ "Free for hackers, $120 for others" }}</div>
+        <div><span text-gray-600>Tags: </span>{{ "#solarpunk #pbw2023" }}</div>
+        <div><span text-gray-600>ID: </span>{{ "English" }}</div>
+        <div><span text-gray-600>Language: </span>{{ "English" }}</div>
+        <div><span text-gray-600>Param#1: </span>{{ "Value" }}</div>
+        <div><span text-gray-600>Organizator: </span>{{ "DuckTape / Paralelni Polis" }}</div>
+        <div display-none md:block />
+        <div><span text-gray-600>Point of contact: </span>{{ "Josef J, Vojta" }}</div>
+      </div>
+    </div>
     <div heading-lg>
       12. 5. - Tuesday
     </div>
