@@ -19,7 +19,7 @@ const displayAll = ref(false)
       {{ option }}
     </UIPill>
     <button
-      v-if="!displayAll"
+      v-if="!displayAll && options.length > 8"
       px-24px py-12px rounded-200
       border-1 border-bggray-200 text-gray-600
       @click="displayAll = true"
