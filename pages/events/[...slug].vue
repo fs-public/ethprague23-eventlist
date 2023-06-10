@@ -84,15 +84,28 @@ const pillSelect = ref(0)
       </div>
     </div>
     <!-- Absolute side info and buttons -->
-    <div absolute left-32px top-32px flex justify-between class="w-[calc(100%-64px)]">
-      <div>Event is in {{ "number" }} event lists</div>
-      <div>Share</div>
+    <div absolute left-32px top-32px flex justify-between class="w-[calc(100%-64px)]" text-lg text-gray-600>
+      <div>Event is in <span font-700>{{ "8" }} event lists</span></div>
+      <div flex items-center gap-12px role="button">
+        <UnoIcon i-ph-share-network-fill />Share
+      </div>
     </div>
   </div>
   <div w-full border-b-1 border-b-bggray-200 mt-24px mb-48px>
     <UITabs v-model="pillSelect" :options="tabOptions" />
   </div>
-  <div page-container gap-48px pt-48px>
+  <div page-container gap-48px>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        {{ 130 }} CONTRIBUTORS
+      </div>
+      <div flex gap-16px>
+        <img v-for="i in 10" :key="i" src="/assets/person.png" alt="Person" w-80px h-80px rounded-full>
+        <div w-80px h-80px rounded-full border-2 border-black flex justify-center items-center heading-sm>
+          +{{ 80 }}
+        </div>
+      </div>
+    </div>
     <div heading-lg>
       12. 5. - Tuesday
     </div>
