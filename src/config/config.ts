@@ -23,3 +23,7 @@ export const GNOSIS_CHAIN = {
     decimals: 18,
   },
 }
+
+export const IPFS_PROVIDERS = [
+  'https://ipfs.io/ipfs/',
+]
