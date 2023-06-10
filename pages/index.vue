@@ -31,12 +31,12 @@ const selected = ref(0)
       All Events
     </UIPillBox>
   </div>
-  <div page-container gap-32px>
-    <template v-for="eventType in Object.keys(sortedEvents)" :key="eventType">
-      <div v-if="sortedEvents[eventType as 'past' | 'live' | 'upcoming'].length" heading-lg pt-16px capitalize>
-        {{ eventType }}
+  <div page-container gap-48px pt-32px>
+    <div v-for="eventType in Object.keys(sortedEvents)" :key="eventType">
+      <div v-if="sortedEvents[eventType as 'past' | 'live' | 'upcoming'].length" heading-md pb-16px capitalize>
+        {{ { live: "Live Now", upcoming: "Upcoming Events", past: "Past Events" }[eventType] }}
       </div>
       <TEventCard v-for="event in sortedEvents[eventType as 'past' | 'live' | 'upcoming']" :key="event.slug" :event="event" :type="(eventType as 'past' | 'live' | 'upcoming')" />
-    </template>
+    </div>
   </div>
 </template>
