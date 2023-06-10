@@ -19,7 +19,7 @@ const pillSelect = ref(0)
 
 <template>
   <div w-400px border-1>
-    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three']" />
+    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />
   </div>
   <div page-container gap-32px>
     <UIPillBox v-model="selected" :options="['All Events', 'PBW2023', 'ETH Zurich', 'Ethereum Events', 'Devcons', 'Web3privacy', 'More', 'Tags', 'Visible']">
