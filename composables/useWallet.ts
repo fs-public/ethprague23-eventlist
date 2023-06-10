@@ -1,17 +1,13 @@
 import detectEthereumProvider from '@metamask/detect-provider'
-import type { Web3Provider } from '@ethersproject/providers'
+import { type ExternalProvider, Web3Provider } from '@ethersproject/providers'
 import { getAddress } from 'ethers'
 import { GNOSIS_CHAIN } from '~/config/config'
 
-const rpc = {
-  100: ['https://rpc.gnosischain.com'],
-}
-
 export default function useWallet() {
   const userAddress = ref<string | null>(null)
+  const externalProvider = ref<ExternalProvider | null>(null)
   const provider = ref<Web3Provider | null>(null)
   const activeChainIdHex = ref<string | null>()
-  const signer = ref()
 
   const isReady = computed(() => userAddress.value && provider.value && activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
 
@@ -22,23 +18,23 @@ export default function useWallet() {
   async function connect() {
     disconnect()
 
-    const metamaskProvider = await detectEthereumProvider() // window.ethereum
+    const metamaskProvider = await detectEthereumProvider() as ExternalProvider // window.ethereum
     if (!provider) {
       alert('No metamask')
       return
     }
 
-    // @ts-expect-error: External type
-    const accounts = await metamaskProvider!.request({ method: 'eth_requestAccounts' })
+    const accounts = await metamaskProvider.request!({ method: 'eth_requestAccounts' })
 
     if (!accounts || accounts.length === 0)
       return disconnect()
 
     userAddress.value = getAddress(accounts[0])
 
-    provider.value = metamaskProvider as Web3Provider
+    externalProvider.value = metamaskProvider
+    provider.value = markRaw(new Web3Provider(metamaskProvider))
 
-    activeChainIdHex.value = await provider.value.request({ method: 'eth_chainId' })
+    activeChainIdHex.value = await externalProvider.value.request!({ method: 'eth_chainId' })
 
     // Event subscriptions
     provider.value.on('accountsChanged', (acc: string[]) => userAddress.value = acc.length > 0 ? getAddress(acc[0]) : null)
@@ -49,23 +45,27 @@ export default function useWallet() {
   }
 
   function disconnect() {
+    if (provider.value)
+      provider.value.removeAllListeners()
+
     userAddress.value = null
+    externalProvider.value = null
     provider.value = null
   }
 
   async function switchChain() {
-    if (!userAddress.value || !provider.value)
+    if (!userAddress.value || !externalProvider.value || activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
       return
 
     try {
-      await provider.value.request({
+      await externalProvider.value.request!({
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: GNOSIS_CHAIN.hexChainId }],
       })
     }
     catch (error: any) {
       if (error.code === 4902 || error.code === -32603) {
-        await provider.value.request({
+        await externalProvider.value.request!({
           method: 'wallet_addEthereumChain',
           params: [
             {
