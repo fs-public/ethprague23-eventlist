@@ -7,13 +7,15 @@ type WithEvents<T> = T & { on: (event: string, callback: (...args: any) => void)
 
 export default function useWallet() {
   const userAddress = ref<string | null>(null)
-  const externalProvider = ref<WithEvents<ExternalProvider> | null>(null)
-  const provider = ref<Web3Provider | null>(null)
+  const ensName = ref<string | null>(null)
+
   const activeChainIdHex = ref<string | null>()
 
-  const isReady = computed(() => userAddress.value && provider.value && activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
-
+  const externalProvider = ref<WithEvents<ExternalProvider> | null>(null)
+  const provider = ref<Web3Provider | null>(null)
   const jsonRpcProvider = computed(() => new JsonRpcProvider(GNOSIS_CHAIN.rpcs[0]))
+
+  const isReady = computed(() => userAddress.value && provider.value && activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
 
   onMounted(async () => {
     connect()
@@ -32,9 +34,11 @@ export default function useWallet() {
     const accounts = await metamaskProvider.request!({ method: 'eth_requestAccounts' })
 
     if (!accounts || accounts.length === 0)
-      return disconnect()
+      return
 
     userAddress.value = getAddress(accounts[0])
+
+    ensName.value = await jsonRpcProvider.value.lookupAddress(userAddress.value)
 
     // Configure providers
     externalProvider.value = metamaskProvider
@@ -93,10 +97,11 @@ export default function useWallet() {
 
   return {
     userAddress,
+    ensName,
     activeChainIdHex,
-    isReady,
     provider,
     jsonRpcProvider,
+    isReady,
     connect,
     switchChain,
   }
