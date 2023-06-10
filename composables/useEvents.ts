@@ -51,8 +51,10 @@ export const useEvents = defineStore('events', () => {
     return result
   })
 
-  fetchEventLists()
-  fetchEvents()
+  onMounted(() => {
+    fetchEventLists()
+    fetchEvents()
+  })
 
   return {
     eventLists,

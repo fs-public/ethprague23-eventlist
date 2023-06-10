@@ -1,7 +1,7 @@
 import detectEthereumProvider from '@metamask/detect-provider'
 import { type ExternalProvider, JsonRpcProvider, Web3Provider } from '@ethersproject/providers'
 import { getAddress } from 'ethers'
-import { GNOSIS_CHAIN } from '~/config/config'
+import { ETHEREUM_CHAIN, GNOSIS_CHAIN } from '~/config/config'
 
 type WithEvents<T> = T & { on: (event: string, callback: (...args: any) => void) => void }
 
@@ -14,6 +14,7 @@ export default function useWallet() {
   const externalProvider = ref<WithEvents<ExternalProvider> | null>(null)
   const provider = ref<Web3Provider | null>(null)
   const jsonRpcProvider = computed(() => new JsonRpcProvider(GNOSIS_CHAIN.rpcs[0]))
+  const jsonRpcProviderETH = computed(() => new JsonRpcProvider(ETHEREUM_CHAIN.rpcs[0]))
 
   const isReady = computed(() => userAddress.value && provider.value && activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
 
@@ -38,7 +39,7 @@ export default function useWallet() {
 
     userAddress.value = getAddress(accounts[0])
 
-    ensName.value = await jsonRpcProvider.value.lookupAddress(userAddress.value)
+    ensName.value = await jsonRpcProviderETH.value.lookupAddress(userAddress.value)
 
     // Configure providers
     externalProvider.value = metamaskProvider
@@ -101,6 +102,7 @@ export default function useWallet() {
     activeChainIdHex,
     provider,
     jsonRpcProvider,
+    jsonRpcProviderETH,
     isReady,
     connect,
     switchChain,
