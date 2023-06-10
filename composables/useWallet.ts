@@ -1,15 +1,19 @@
 import detectEthereumProvider from '@metamask/detect-provider'
-import { type ExternalProvider, Web3Provider } from '@ethersproject/providers'
+import { type ExternalProvider, JsonRpcProvider, Web3Provider } from '@ethersproject/providers'
 import { getAddress } from 'ethers'
 import { GNOSIS_CHAIN } from '~/config/config'
 
+type WithEvents<T> = T & { on: (event: string, callback: (...args: any) => void) => void }
+
 export default function useWallet() {
   const userAddress = ref<string | null>(null)
-  const externalProvider = ref<ExternalProvider | null>(null)
+  const externalProvider = ref<WithEvents<ExternalProvider> | null>(null)
   const provider = ref<Web3Provider | null>(null)
   const activeChainIdHex = ref<string | null>()
 
   const isReady = computed(() => userAddress.value && provider.value && activeChainIdHex.value === GNOSIS_CHAIN.hexChainId)
+
+  const jsonRpcProvider = computed(() => new JsonRpcProvider(GNOSIS_CHAIN.rpcs[0]))
 
   onMounted(async () => {
     connect()
@@ -18,12 +22,13 @@ export default function useWallet() {
   async function connect() {
     disconnect()
 
-    const metamaskProvider = await detectEthereumProvider() as ExternalProvider // window.ethereum
+    const metamaskProvider = await detectEthereumProvider() as WithEvents<ExternalProvider> // window.ethereum
     if (!provider) {
       alert('No metamask')
       return
     }
 
+    // Get accounts
     const accounts = await metamaskProvider.request!({ method: 'eth_requestAccounts' })
 
     if (!accounts || accounts.length === 0)
@@ -31,17 +36,18 @@ export default function useWallet() {
 
     userAddress.value = getAddress(accounts[0])
 
+    // Configure providers
     externalProvider.value = metamaskProvider
     provider.value = markRaw(new Web3Provider(metamaskProvider))
 
-    activeChainIdHex.value = await externalProvider.value.request!({ method: 'eth_chainId' })
-
     // Event subscriptions
-    provider.value.on('accountsChanged', (acc: string[]) => userAddress.value = acc.length > 0 ? getAddress(acc[0]) : null)
-    provider.value.on('chainChanged', (chainId: string) => activeChainIdHex.value = chainId)
-    provider.value.on('disconnect', disconnect)
+    externalProvider.value.on('accountsChanged', (acc: string[]) => userAddress.value = acc.length > 0 ? getAddress(acc[0]) : null)
+    externalProvider.value.on('chainChanged', (chainId: string) => activeChainIdHex.value = chainId)
+    externalProvider.value.on('disconnect', disconnect)
 
-    // Get and set
+    // Get and set correct chain eagerly
+    activeChainIdHex.value = await externalProvider.value.request!({ method: 'eth_chainId' })
+    switchChain()
   }
 
   function disconnect() {
@@ -87,8 +93,10 @@ export default function useWallet() {
 
   return {
     userAddress,
-    provider,
     activeChainIdHex,
+    isReady,
+    provider,
+    jsonRpcProvider,
     connect,
     switchChain,
   }
