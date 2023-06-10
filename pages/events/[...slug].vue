@@ -75,6 +75,14 @@ const socialIcons = {
   lens: 'i-ph-tree-palm text-[#004e1d] ',
   github: 'i-cib-github',
 }
+
+const mockPartners = [
+  { name: 'Consensys', image: '/assets/partners/consensys.png' },
+  { name: 'Paradigm', image: '/assets/partners/paradigm.png' },
+  { name: 'Pawn', image: '/assets/partners/pawn.png' },
+  { name: 'Ledger', image: '/assets/partners/ledger.png' },
+  { name: 'Aave', image: '/assets/partners/aave.png' },
+]
 </script>
 
 <template>
@@ -217,6 +225,17 @@ const socialIcons = {
             Link:
           </div>
           <div>{{ "poap.delivery/ethprague" }}</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        PARTNERS
+      </div>
+      <div flex gap-48px heading-xs>
+        <div v-for="(partner, i) in mockPartners" :key="i" flex flex-col items-center gap-8px>
+          <img :src="partner.image" alt="Partner" w-230px h-100px object-contain>
+          {{ partner.name }}
         </div>
       </div>
     </div>
