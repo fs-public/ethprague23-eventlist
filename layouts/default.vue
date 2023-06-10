@@ -3,23 +3,28 @@
 
 <template>
   <div>
-    <div w-full flex justify-between px-32px py-36px>
+    <div w-full flex justify-between items-center px-32px py-24px>
       <NuxtLink to="/">
         <img src="/assets/web3Stream.png" alt="Logo">
       </NuxtLink>
       <div flex gap-32px text-gray-600 text-lg>
-        <NuxtLink to="/discover" link active-class="text-black">
+        <NuxtLink to="/" gray-link active-class="text-black">
           Discover
         </NuxtLink>
-        <NuxtLink to="/mystreams" link active-class="text-black">
-          My streams
+        <NuxtLink to="/series" gray-link active-class="text-black">
+          Series
         </NuxtLink>
-        <NuxtLink to="/about" link active-class="text-black">
-          About
+        <NuxtLink to="/myevents" gray-link active-class="text-black">
+          My Events
+        </NuxtLink>
+        <NuxtLink to="/create" blue-link>
+          + Create
         </NuxtLink>
       </div>
+      <UIInput type="search" />
       <TWalletButton />
     </div>
+    <div w-full h-1px bg-bggray-200 mb-36px />
     <div grow overflow-x-hidden>
       <Suspense>
         <slot />

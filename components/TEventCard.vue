@@ -2,29 +2,37 @@
 defineProps<{ event: DEvent }>()
 
 const cardStyles: { [key in DTimeStatus]: string } = {
-  upcoming: 'bg-bggray-300 opacity-50',
+  upcoming: 'bg-bggray-300',
   live: 'bg-shiny-gradient',
   past: 'bg-bggray-300',
 }
 </script>
 
 <template>
-  <div :class="cardStyles[event.type]" w-full rounded-32px p-48px>
-    <div flex justify-between>
-      <div flex flex-col>
-        <div heading-md pb-24px>
-          {{ event.name }}
-        </div>
-        <div heading-sm>
-          {{ event.subheadline }}
-        </div>
-      </div>
-      <NuxtLink :to="event.programUrl" heading-md pt-24px link>
-        Full Program
-      </NuxtLink>
+  <div>
+    <div heading-sm text-gray-600 mb-16px>
+      {{ event.date }}
     </div>
-    <div v-if="event.stages && event.stages.length > 0" flex gap-32px pt-100px>
-      <TStageImage v-for="(stage, i) in event.stages" :key="i" :stage="stage" />
+    <div :class="cardStyles[event.type]" w-full rounded-24px p-48px>
+      <div flex justify-between>
+        <div flex items-center gap-24px>
+          <img :src="event.image" alt="Event Logo" w-96px h-96px>
+          <div flex flex-col gap-12px>
+            <div heading-md>
+              {{ event.name }}
+            </div>
+            <div heading-sm>
+              {{ event.subheadline }}
+            </div>
+          </div>
+        </div>
+        <NuxtLink :to="event.programUrl" heading-md pt-24px gray-link>
+          Full Program
+        </NuxtLink>
+      </div>
+      <div v-if="event.stages && event.stages.length > 0" flex gap-32px pt-40px>
+        <TStageImage v-for="(stage, i) in event.stages" :key="i" :stage="stage" />
+      </div>
     </div>
   </div>
 </template>
