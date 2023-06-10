@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const optionClass = '      option w-25% text-center text-gray-600 [&:hover:not(:active)]:text-gray-300'
+const createOptionClass = 'option w-25% text-center text-blue     [&:hover:not(:active)]:text-blue-dark'
 </script>
 
 <template>
@@ -7,19 +9,24 @@
       <NuxtLink to="/">
         <img src="/assets/web3Stream.png" alt="Logo">
       </NuxtLink>
-      <div flex gap-32px text-gray-600 text-lg>
-        <NuxtLink to="/" gray-link active-class="text-black">
+      <div relative flex min-w-430px text-gray-600 text-lg border-1>
+        <NuxtLink to="/" :class="optionClass" active-class="active text-black!">
           Discover
         </NuxtLink>
-        <NuxtLink to="/series" gray-link active-class="text-black">
+        <NuxtLink to="/series" :class="optionClass" active-class="active text-black!">
           Series
         </NuxtLink>
-        <NuxtLink to="/myevents" gray-link active-class="text-black">
+        <NuxtLink to="/myevents" :class="optionClass" active-class="active text-black!">
           My Events
         </NuxtLink>
-        <NuxtLink to="/create" blue-link>
+        <NuxtLink to="/create" :class="createOptionClass" active-class="active">
           + Create
         </NuxtLink>
+        <div
+          absolute left-0 bottom-0 h-3px w-full
+          bg-black transform-origin-bl transition-transform
+          class="slider"
+        />
       </div>
       <UIInput type="search" />
       <div>Connect Wallet (TODO)</div>
@@ -35,3 +42,21 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.option {
+  &:first-child.active ~ .slider {
+    transform: translateX(2.5%) scaleX(20%);
+  }
+  &:nth-child(2).active ~ .slider {
+    transform: translateX(27.5%) scaleX(20%);
+  }
+  &:nth-child(3).active ~ .slider {
+    transform: translateX(52.5%) scaleX(20%);
+  }
+  &:nth-child(4).active ~ .slider {
+    transform: translateX(77.5%) scaleX(20%);
+    background-color: #0019FF;
+  }
+}
+</style>

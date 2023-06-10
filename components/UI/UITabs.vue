@@ -18,8 +18,8 @@ const sizeStyles = ['', 'w-100%', 'w-50%', 'w-33.33%', 'w-25%', 'w-20%', 'w-16.6
     <div
       v-for="(option, i) in options" :key="i"
       role="button"
-      cursor-pointer text-center mb-26px p-6px heading-sm hover:text-gray-300
-      :class="`option ${sizeStyles[options.length]} ${i === modelSelected ? 'active hover:text-black!' : 'text-gray-600'}`"
+      cursor-pointer text-center mb-26px p-6px heading-sm
+      :class="`option [&:hover:not(:active)]:text-gray-300 ${sizeStyles[options.length]} ${i === modelSelected ? 'active hover:text-black!' : 'text-gray-600'}`"
       @click="modelSelected = i"
     >
       {{ option }}
