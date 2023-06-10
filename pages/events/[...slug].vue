@@ -59,6 +59,22 @@ const mockStages: DStage[] = [
 const tabOptions = ['overview', 'schedule', 'contributors', 'hackathon', 'tickets', 'reviews']
 
 const pillSelect = ref(0)
+
+const mockSocials = {
+  web: 'ethprague.com',
+  twitter: '@ethprague',
+  telegram: '@ETHPRG',
+  lens: 'ethprague.lens',
+  github: 'github.com/ethprague',
+}
+
+const socialIcons = {
+  web: 'i-ph-globe',
+  twitter: 'i-cib-twitter text-[#1d9bf0]',
+  telegram: 'i-cib-telegram text-[#31a9df]',
+  lens: 'i-ph-tree-palm text-[#004e1d] ',
+  github: 'i-cib-github',
+}
 </script>
 
 <template>
@@ -126,6 +142,27 @@ const pillSelect = ref(0)
               {{ "Boat Chill-zone" }}
             </div>
             <div>{{ "June 2023 – 17:00" }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div heading-sm text-gray-600 mb-24px>
+        SOCIALS
+      </div>
+      <div w-full grid grid-cols-1 gap-32px md:grid-cols-2 lg:grid-cols-3>
+        <div
+          v-for="(socialKey, i) in (Object.keys(mockSocials) as (keyof typeof mockSocials)[])" :key="i"
+          flex flex-col gap-8px rounded-16px bg-bggray-50 px-32px py-24px
+        >
+          <div flex items-center gap-8px>
+            <UnoIcon :class="socialIcons[socialKey]" w-24px h-24px />
+            <div text-lg text-gray-600 capitalize>
+              {{ socialKey }}
+            </div>
+          </div>
+          <div heading-sm>
+            {{ mockSocials[socialKey] }}
           </div>
         </div>
       </div>
