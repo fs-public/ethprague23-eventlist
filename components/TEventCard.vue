@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import moment from 'moment'
 
-const props = defineProps<{ event: DEvent; type: 'past' | 'live' | 'upcoming' }>()
+defineProps<{ event: DEvent; type: 'past' | 'live' | 'upcoming' }>()
 
 const cardStyles: { [key in DTimeStatus]: string } = {
   upcoming: 'bg-bggray-300',
   live: 'bg-shiny-gradient',
   past: 'bg-bggray-300',
 }
-
-console.log(props.event)
-// :to="`events/${event.slug}`"
 </script>
 
 <template>
-  <div>
+  <NuxtLink :to="`events/${event.slug}`">
     <div heading-sm text-gray-600 mb-16px>
       {{ `${moment(event.startDate).format("D. M.")} – ${moment(event.endDate).format("D. M. YYYY")}` }}
     </div>
@@ -39,5 +36,5 @@ console.log(props.event)
         <TStageImage v-for="(stage, i) in event.stages" :key="i" :stage="stage" />
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>

@@ -55,6 +55,8 @@ const mockStages: DStage[] = [
   { name: 'Hackathon', url: getEventUrl('hackathon', slugs), activities },
   { name: 'Hackathon #2', url: getEventUrl('hackathon2', slugs), activities },
 ]
+
+const pillSelect = ref(0)
 </script>
 
 <template>
@@ -66,6 +68,9 @@ const mockStages: DStage[] = [
     <NuxtLink to="./">
       <UnoIcon absolute left-32px top-32px w-32px h-32px i-ph-arrow-left />
     </NuxtLink>
+  </div>
+  <div w-400px border-b-1 border-b-bggray-200 mb-50px>
+    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />
   </div>
   <div page-container gap-48px pt-48px>
     <div heading-lg>
