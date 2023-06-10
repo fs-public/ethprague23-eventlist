@@ -62,7 +62,7 @@ export default defineConfig({
       green: '#00FF47',
       blue: {
         DEFAULT: '#0019FF',
-        dark: '#0D21D6',
+        dark: '#111F99',
       },
     },
   },

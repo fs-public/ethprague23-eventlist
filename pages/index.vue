@@ -15,9 +15,14 @@
 const { sortedEvents, eventLists } = storeToRefs(useEvents())
 
 const selected = ref(0)
+
+const pillSelect = ref(0)
 </script>
 
 <template>
+  <div w-400px border-b-1 border-b-bggray-200 mb-50px>
+    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />
+  </div>
   <div page-container gap-32px>
     <UIPillBox v-model="selected" :options="['All Events', ...eventLists]">
       All Events
