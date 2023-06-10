@@ -48,6 +48,7 @@ export default defineConfig({
       sm: '450px',
       md: '800px',
       lg: '1124px',
+      xl: '1444px',
     },
     colors: {
       white: '#FFFFFF',

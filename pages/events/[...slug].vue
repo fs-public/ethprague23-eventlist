@@ -100,9 +100,17 @@ const pillSelect = ref(0)
         {{ 130 }} CONTRIBUTORS
       </div>
       <div flex gap-16px>
-        <img v-for="i in 10" :key="i" src="/assets/person.png" alt="Person" w-80px h-80px rounded-full>
+        <img
+          v-for="(_, i) in [...Array(100)].slice(0, 10)" :key="i" src="/assets/person.png" alt="Person" w-80px h-80px rounded-full
+          hidden xl:block
+          :class="{ 'block!': i < 3, 'md:block': i < 5, 'lg:block': i < 7 }"
+        >
         <div w-80px h-80px rounded-full border-2 border-black flex justify-center items-center heading-sm>
-          +{{ 80 }}
+          +
+          <span md:hidden>{{ 80 + 7 }}</span>
+          <span hidden md:block lg:hidden>{{ 80 + 5 }}</span>
+          <span hidden lg:block xl:hidden>{{ 80 + 3 }}</span>
+          <span hidden xl:block>{{ 80 }}</span>
         </div>
       </div>
     </div>
