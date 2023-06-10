@@ -13,9 +13,14 @@ const event: Omit<DEvent, 'type'> = {
 }
 
 const selected = ref(0)
+
+const pillSelect = ref(0)
 </script>
 
 <template>
+  <div w-400px border-1>
+    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three']" />
+  </div>
   <div page-container gap-32px>
     <UIPillBox v-model="selected" :options="['All Events', 'PBW2023', 'ETH Zurich', 'Ethereum Events', 'Devcons', 'Web3privacy', 'More', 'Tags', 'Visible']">
       All Events
