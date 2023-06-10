@@ -56,6 +56,8 @@ const mockStages: DStage[] = [
   { name: 'Hackathon #2', url: getEventUrl('hackathon2', slugs), activities },
 ]
 
+const tabOptions = ['overview', 'schedule', 'contributors', 'hackathon', 'tickets', 'reviews']
+
 const pillSelect = ref(0)
 </script>
 
@@ -87,8 +89,8 @@ const pillSelect = ref(0)
       <div>Share</div>
     </div>
   </div>
-  <div w-400px border-b-1 border-b-bggray-200 mb-50px>
-    <UITabs v-model="pillSelect" :options="['One', 'Two', 'Three', 'Four', 'Five']" />
+  <div w-full border-b-1 border-b-bggray-200 mt-24px mb-48px>
+    <UITabs v-model="pillSelect" :options="tabOptions" />
   </div>
   <div page-container gap-48px pt-48px>
     <div heading-lg>
