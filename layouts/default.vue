@@ -32,7 +32,7 @@ const createOptionClass = 'option w-25% py-32px text-center text-blue     [&:hov
       <UIInput type="search" />
       <TWalletButton />
     </div>
-    <div w-full h-1px bg-bggray-200 mb-36px />
+    <div w-full h-1px bg-bggray-200 />
     <div grow overflow-x-hidden>
       <Suspense>
         <slot />

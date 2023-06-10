@@ -11,7 +11,7 @@ const emit = defineEmits(['pillClicked'])
 <template>
   <button
     px-24px py-12px rounded-200
-    :class="selected ? 'bg-black text-white font-800' : 'bg-bggray-100 text-gray-600'"
+    :class="selected ? 'bg-black text-white white-bold-no-resize' : 'bg-bggray-100 text-gray-600'"
     @click="emit('pillClicked')"
   >
     <slot />

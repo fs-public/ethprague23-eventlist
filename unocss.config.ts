@@ -22,6 +22,8 @@ export default defineConfig({
     // Utilities
     { 'gray-link': '[&:hover:not(:active)]:underline [&:hover:not(:active)]:text-gray-300' },
     { 'blue-link': 'text-blue [&:hover:not(:active)]:underline [&:hover:not(:active)]:text-blue-dark' },
+    { 'black-bold-no-resize': 'text-shadow-[0px_0px_1px_black]' },
+    { 'white-bold-no-resize': 'text-shadow-[0px_0px_1px_white]' },
   ],
   presets: [
     presetUno(),
@@ -51,6 +53,7 @@ export default defineConfig({
       white: '#FFFFFF',
       black: '#000000',
       bggray: {
+        50: '#F8F8F8',
         100: '#F0F0F0',
         200: '#E0E0E0',
         300: '#D9D9D9',
