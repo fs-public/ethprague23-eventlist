@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-const optionClass = '      option w-25% text-center text-gray-600 [&:hover:not(:active)]:text-gray-300'
-const createOptionClass = 'option w-25% text-center text-blue     [&:hover:not(:active)]:text-blue-dark'
+const optionClass = '      option w-25% py-32px text-center text-gray-600 [&:hover:not(:active)]:text-gray-300'
+const createOptionClass = 'option w-25% py-32px text-center text-blue     [&:hover:not(:active)]:text-blue-dark'
 </script>
 
 <template>
   <div>
-    <div w-full flex justify-between items-center px-32px py-24px>
+    <div w-full flex justify-between items-center px-32px>
       <NuxtLink to="/">
-        <img src="/assets/web3Stream.png" alt="Logo">
+        <img src="/assets/web3Stream.png" alt="Logo" mt="-5px">
       </NuxtLink>
-      <div relative flex min-w-430px text-gray-600 text-lg border-1>
+      <div relative flex min-w-430px text-gray-600 text-lg>
         <NuxtLink to="/" :class="optionClass" active-class="active text-black!">
           Discover
         </NuxtLink>
